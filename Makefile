@@ -2,7 +2,7 @@ NAME = push_swap
 
 SRC_DIR = ./mandatory
 OBJ_DIR = ./obj
-SRCS	= try.c
+SRCS	= push.c printf_list.c main.c swap.c
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 # FT_PRINTF
@@ -38,7 +38,7 @@ $(OBJ_DIR)/%.o: $(FT_PRINTF_DIR)/%.c
 	@$(CCD) $(INCLUDES) -c $< -o $@
 
 test:
-	make && ./push_swap 2 31 1 -4 2
+	@make && ./push_swap
 
 clean:
 	$(RM) $(OBJ_DIR)
