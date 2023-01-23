@@ -11,12 +11,28 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int	ft_atoi(const char *str)
+//all_number is just to loop through 
+//whether the remaining is numbers
+int	all_number(const char	*str, int i)
+{
+	int	r;
+
+	r = i - 1;
+	while (str[++r])
+	{
+		if (ft_isdigit(str[r]) == 0)
+			return (-1);
+	}
+	return (0);
+}
+
+long ft_atoi(const char *str)
 {
 	int	i;
 	int	negative;
-	int	result;
+	long result;
 
 	i = 0;
 	negative = 1;
@@ -29,10 +45,11 @@ int	ft_atoi(const char *str)
 			negative *= -1;
 		i++;
 	}
+	if (all_number(str, i) != 0)
+		return (0);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result *= 10;
-		result += (str[i] - 48);
+		result = (result * 10) + (str[i] - 48);
 		i++;
 	}
 	result *= negative;

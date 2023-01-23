@@ -2,7 +2,8 @@ NAME = push_swap
 
 SRC_DIR = ./mandatory
 OBJ_DIR = ./obj
-SRCS	= push.c printf_list.c main.c swap.c
+SRCS	= printf_list.c main.c operators.c delete.c \
+			error_checking.c
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 # FT_PRINTF
@@ -12,7 +13,7 @@ FT_PRINTF_OBJS = $(FT_PRINTF_SRCS:%.c=$(OBJ_DIR)/%.o)
 
 
 CC 		= gcc
-CCD		= gcc -fsanitize=address -g3
+CCD		= gcc -g -Og -std=gnu99
 CFLAGS	= -Wall -Wextra -Werror
 
 RM		= rm -rf
@@ -23,7 +24,7 @@ LIB		= -Llibft -lft
 all: $(NAME)
 
 $(NAME): $(OBJS) $(FT_PRINTF_OBJS) libft/libft.a
-	$(CCD) $(CFLAGS) $(OBJS) $(FT_PRINTF_OBJS) $(INCLUDES) $(LIB) -o $@
+	@$(CCD) $(CFLAGS) $(OBJS) $(FT_PRINTF_OBJS) $(INCLUDES) $(LIB) -o $@
 
 libft/libft.a:
 	@make all -C libft
@@ -39,6 +40,9 @@ $(OBJ_DIR)/%.o: $(FT_PRINTF_DIR)/%.c
 
 test:
 	@make && ./push_swap
+
+leaks:
+	@valgrind --leak-check=full --show-leak-kinds=all ./push_swap
 
 clean:
 	$(RM) $(OBJ_DIR)
