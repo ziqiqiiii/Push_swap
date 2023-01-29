@@ -2,28 +2,18 @@
 
 int main(int argc, char **argv)
 {
-	t_list *list;
-	t_list	*new;
-	t_list	*third;
+	t_list	*a;
+	t_list	*b;
 
-	if (error_checking(argc, argv) != 0)
+	a = NULL;
+	b = NULL;
+	if (error_checking(argc, argv, &a) != 0)
+	{
+		ft_lstclear(&a, delete);
 		return (-1);
-	list = ft_lstnew((int *)1);
-	new = ft_lstnew((int *)2);
-	third = ft_lstnew((int	*)5);
-	ft_lstadd_back(&list, new);
-	ft_lstadd_back(&list, third);
-	// print_list(list);
-	// ft_printf("\nafter swap\n");
-    swap(&list, 'b');
-	// ft_printf("\nafter rotate\n");
-	rotate(&list);
-	// print_list(list);
-	// ft_printf("\nafter reverse rotate\n");
-	reverse_rotate(&list);
-	// print_list(list);
-	ft_lstclear(&list, delete);
-
+	}
+	// print_list(a);
+	ft_lstclear(&a, delete);
 }
 
 //operators (done)
@@ -35,3 +25,6 @@ int main(int argc, char **argv)
 // NEED TO UNDERSTAND WHY THEY USED LONG WHEN WE'RE DEALING WITH  INT_MIN && INT_MAX
 // -form two list
 // -free string (done)
+
+
+// stucked at int array can't differentiate 0 and NULL;
