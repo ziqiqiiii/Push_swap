@@ -1,5 +1,8 @@
 #include "../includes/push_swap.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+
 int main(int argc, char **argv)
 {
 	t_list	*a;
@@ -12,8 +15,16 @@ int main(int argc, char **argv)
 		ft_lstclear(&a, delete);
 		return (-1);
 	}
+	indexing(a);
+	// printf("before sort 3\n");
 	// print_list(a);
-	ft_lstclear(&a, delete);
+	a = sort_three(a, 'a');
+	// printf("\nafter\n");
+    // print_list(a);
+	// printf("\n");
+    // printf("\n");
+    // print_list(b);
+	// ft_lstclear(&a, delete);
 }
 
 //operators (done)
@@ -26,5 +37,6 @@ int main(int argc, char **argv)
 // -form two list
 // -free string (done)
 
-
-// stucked at int array can't differentiate 0 and NULL;
+//sort small
+//sort 3
+//sort 5

@@ -3,22 +3,25 @@
 
 int	error_checking(int  argc, char **argv, t_list **a)
 {
+	if (argc == 1)
+		exit (0);
     if (argc <= 2)
 	{
-		ft_putstr_fd("Erorr: wrong number of arguments\n", 2);
+		ft_putstr_fd("Error: wrong number of arguments\n", 2);
 		return (-1);
 	}
 	if (is_number(argv, a) != 0)
 	{
-		ft_putstr_fd("Erorr:not number\n", 2);
+		ft_putstr_fd("Error:not number\n", 2);
 		return (-1);
 	}
 	if (is_duplicate(*a) != 0)
 	{
-		ft_putstr_fd("Erorr: duplicate numbers\n", 2);
+		ft_putstr_fd("Error: duplicate numbers\n", 2);
 		return (-1);
 	}
-	print_list(*a);
+	if (is_sorted(*a) == 0)
+		return (-1);
 	return (0);
 }
 
@@ -72,8 +75,10 @@ int	is_number(char **argv, t_list **a)
 //so have to malloc the sizeof the data type that the pointer
 //point to
 //in this case, int
+//have to typecast before deredenecing
 //this is how a use generic linked list that
 //we coded in libft
+
 
 int	is_duplicate(t_list *a)
 {
@@ -93,6 +98,29 @@ int	is_duplicate(t_list *a)
 			tmp = tmp->next;
 		}
 		a = a->next;
+	}
+	return (0);
+}
+
+
+// if the fucntion is_sorted return (-1)
+// means not sorted
+// return (0) means sorted
+
+
+int	is_sorted(t_list *list)
+{
+	int	value;
+
+	value = *(int *)list->content;
+	while (list->next)
+	{
+		if (value  > *(int *)list->next->content)
+		{
+			return (-1);
+		}
+		list = list->next;
+		value = *(int *)list->content;
 	}
 	return (0);
 }

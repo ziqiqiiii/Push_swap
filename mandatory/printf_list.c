@@ -2,7 +2,7 @@
 
 void	print_content(void	*content)
 {
-	ft_printf("%i\n", *((int *)content));
+	ft_printf("%i	", *((int *)content));
 }
 
 void	print_list(t_list *list)

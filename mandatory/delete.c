@@ -2,5 +2,5 @@
 
 void    delete(void *content)
 {
-
+    free(content);
 }
