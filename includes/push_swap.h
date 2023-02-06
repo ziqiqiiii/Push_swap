@@ -10,6 +10,7 @@
 //printf
 void	print_content(void *content);
 void	print_list(t_list *list);
+void	print_ab(t_list	*a, t_list	*b);
 
 //operators
 void    swap(t_list **list, int s);
@@ -30,7 +31,23 @@ int	    is_sorted(t_list *list);
 
 //utlis.c
 void    indexing(t_list *list);
+int	    get_distance_value(t_list	**list, int	min);
+int	    get_distance_index(t_list	**list, int	num);
+int     find_min(t_list *list);
+// int	    find_max(t_list *list);
+int	    abs(int	num);
+// int	    next_min(t_list *list);
+
 
 //sort_small
-t_list  *sort_three(t_list	*list, int	c);
+void	sort_two(t_list **list, int	c);
+void	sort_three(t_list	**list, int	c);
+void	sort_four(t_list **a, t_list **b);
+void	sort_five(t_list **a, t_list **b);
+
+//sort
+void    sort(t_list **a, t_list **b);
+void    sort_small(t_list **a, t_list **b, int size);
+void	insertion_sort(t_list **a, t_list **b, int	size);
+
 #endif

@@ -33,7 +33,7 @@ void	push(t_list **from, t_list **pushto, int c)
 	*pushto = temp;
 	if (c == 'a')
 		ft_printf("pa\n");
-	else if ('b')
+	else if (c == 'b')
 		ft_printf("pb\n");
 }
 

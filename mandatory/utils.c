@@ -46,3 +46,87 @@ void    indexing(t_list *list)
             max->index = index;
     }  
 }
+
+//get_distance return the distance from
+//the start to the min value
+int	get_distance_value(t_list	**list, int	min)
+{
+	int	i;
+	t_list			*tmp;
+
+	tmp = *list;
+	i = 1;
+	while (tmp)
+	{
+		if (*(int *)tmp->content == min)
+			return (i);
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
+}
+
+int	get_distance_index(t_list	**list, int	num)
+{
+	int	i;
+	t_list			*tmp;
+
+	tmp = *list;
+	i = 1;
+	while (tmp)
+	{
+		if (tmp->index == num)
+			return (i);
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
+}
+// int	find_max(t_list *list)
+// {
+// 	int i;
+
+// 	i = *(int *)list->content;
+// 	list = list->next;
+// 	while (list)
+// 	{
+// 		if (i < *(int *)list->content)
+// 			i = *(int *)list->content;
+// 		list = list->next;
+// 	}
+// 	return (i);
+// }
+//next_min return the second smallest
+//num
+// int	next_min(t_list *list)
+// {
+// 	int		min;
+// 	int		i;
+// 	t_list	*head;
+// 	t_list	*new;
+
+// 	min = find_min(list);
+// 	head = NULL;
+// 	while (list)
+// 	{
+// 		i = *(int *)list->content;
+// 		if (i != min)
+// 		{
+// 			new = ft_lstnew(NULL);
+// 			new->content = malloc(sizeof(int));
+// 			*(int*)new->content = i;
+// 			ft_lstadd_back(&head, new);
+// 		}
+// 		list = list->next;
+// 	}
+// 	min = find_min(head);
+// 	ft_lstclear(&head, delete);
+// 	return (min);
+// }
+
+int	abs(int	num)
+{
+	if (num < 0)
+		return (-num);
+	return (num);
+}

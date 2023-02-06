@@ -1,38 +1,107 @@
 #include "../includes/push_swap.h"
 
-t_list	*sort_three(t_list	*list, int	c)
+void	sort_two(t_list **list, int	c)
+{
+	int	one;
+	int	two;
+
+	one = *(int *)(*list)->content;
+	two = *(int	*)(*list)->next->content;
+	if (c == 'a')
+	{
+		if (one > two)
+			swap(list, c);
+	}
+	else if (c == 'b')
+	{
+		if (two > one)
+			swap(list, c);
+	}
+}
+
+static	void one_smaller_than_two(t_list **list, int one, int three, int c)
+{
+	if (one < three)
+	{
+		reverse_rotate(list, c);
+		swap(list, c);
+	}
+	else
+		reverse_rotate(list, c);
+}
+
+void	sort_three(t_list	**list, int	c)
 {
 	int	one;
 	int	two;
 	int	three;
 
-	one = *(int *)list->content;
-	two = *(int *)list->next->content;
-	three = *(int *)list->next->next->content;
+	one = *(int *)(*list)->content;
+	two = *(int *)(*list)->next->content;
+	three = *(int *)(*list)->next->next->content;
 	if (one < two)
-	{
-		if (one < three)
-		{
-			reverse_rotate(&list, c);
-			swap(&list, c);
-		}
-		else
-			reverse_rotate(&list, c);
-	}
+		one_smaller_than_two(list, one, three, c);
 	else
 	{
 		if (one < three)
-			swap(&list, c);
+			swap(list, c);
 		else
 		{
 			if (two < three)
-				rotate(&list, c);
+				rotate(list, c);
 			else
 			{
-				swap(&list, c);
-				reverse_rotate(&list, c);
+				swap(list, c);
+				reverse_rotate(list, c);
 			}
 		}
 	}
-	return (list);
+}
+
+void	sort_four(t_list **a, t_list **b)
+{
+	unsigned int	i;
+
+	i = get_distance_value(a, find_min(*a));
+	if (i == 2)
+		swap(a, 'a');
+	else if (i == 3)
+	{
+		rotate(a, 'a');
+		rotate(a, 'a');
+	}
+	else if (i == 4)
+		reverse_rotate(a, 'a');
+	if (is_sorted(*a) == 0)
+		return	;
+	push(a, b, 'b');
+	sort_three(a, 'a');
+	push(b, a, 'a');
+}
+
+
+void	sort_five(t_list **a, t_list **b)
+{
+	int	i;
+
+	i = get_distance_value(a, find_min(*a));
+	if (i == 2)
+		rotate(a, 'a');
+	else if (i == 3)
+	{
+		rotate(a, 'a');
+		rotate(a, 'a');
+	}
+	else if (i == 4)
+	{
+		reverse_rotate(a, 'a');
+		reverse_rotate(a, 'a');
+	}
+	else if (i == 5)
+		reverse_rotate(a, 'a');
+	if (is_sorted(*a) == 0)
+		return ;
+	push(a, b, 'b');
+	sort_four(a, b);
+	push(b, a, 'a');
 }

@@ -3,7 +3,8 @@ NAME = push_swap
 SRC_DIR = ./mandatory
 OBJ_DIR = ./obj
 SRCS	= printf_list.c main.c operators.c delete.c \
-			error_checking.c utils.c sort_small.c
+			error_checking.c utils.c sort_small.c \
+			sort.c
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 # FT_PRINTF

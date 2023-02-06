@@ -7,6 +7,7 @@ int main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
+	int		i;
 
 	a = NULL;
 	b = NULL;
@@ -16,15 +17,11 @@ int main(int argc, char **argv)
 		return (-1);
 	}
 	indexing(a);
-	// printf("before sort 3\n");
-	// print_list(a);
-	a = sort_three(a, 'a');
-	// printf("\nafter\n");
-    // print_list(a);
-	// printf("\n");
-    // printf("\n");
-    // print_list(b);
-	// ft_lstclear(&a, delete);
+	// printf("distance %i\n", get_distance(&a, find_min(a)));
+	// print_ab(a, b);
+	sort(&a, &b);
+    // print_ab(a, b);
+	ft_lstclear(&a, delete);
 }
 
 //operators (done)
@@ -40,3 +37,4 @@ int main(int argc, char **argv)
 //sort small
 //sort 3
 //sort 5
+//find median sort 5
