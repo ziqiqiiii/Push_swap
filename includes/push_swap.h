@@ -26,6 +26,7 @@ void	delete(void *content);
 
 //error_checking.c
 int		error_checking(int argc, char **argv, t_list **a);
+int		check_num(int argc, char **argv, t_list **a);
 int		is_duplicate(t_list *a);
 int		is_number(char **argv, t_list **a);
 int		is_sorted(t_list *list);
