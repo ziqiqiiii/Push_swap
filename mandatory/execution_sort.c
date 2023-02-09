@@ -24,7 +24,6 @@ void	exec_insert_sort(t_list **a, t_list **b, int min, int max)
 	}
 }
 
-
 void	exec_reverse_insert(t_list **a, t_list **b, int size)
 {
 	int	dis;

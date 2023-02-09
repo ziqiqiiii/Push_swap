@@ -1,4 +1,3 @@
-
 #ifndef PUSH_SWAP_H
 # 	define PUSH_SWAP_H
 
@@ -40,8 +39,8 @@ int		find_max(t_list *list);
 // int	    next_min(t_list *list);
 
 //utils_two.c
-int	    abs(int	num);
-int		range(int	size);
+int		abs(int num);
+int		range(int size);
 void	free_twod(char **list);
 
 //sort_small.c
@@ -66,7 +65,6 @@ int		reverse_sorted(t_list *list);
 //steps_cal.c
 int		less_steps(t_list *list, int min, int max, int size);
 int		min_steps(t_list *list, int i, int size, int max);
-
 
 //execurion_sort.c
 void	exec_insert_sort(t_list **a, t_list **b, int min, int max);

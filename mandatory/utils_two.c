@@ -19,7 +19,7 @@ int	range(int size)
 
 void	free_twod(char **list)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (list[i])

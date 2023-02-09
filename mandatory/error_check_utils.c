@@ -14,7 +14,7 @@ int	check_num(int argc, char **argv, t_list **a)
 		}
 		free_twod(nums);
 	}
-	else 
+	else
 	{
 		if (is_number(argv, a) != 0)
 			return (-1);
