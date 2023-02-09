@@ -6,7 +6,7 @@ void	sort_two(t_list **list, int	c)
 	int	two;
 
 	one = *(int *)(*list)->content;
-	two = *(int	*)(*list)->next->content;
+	two = *(int *)(*list)->next->content;
 	if (c == 'a')
 	{
 		if (one > two)
@@ -19,7 +19,7 @@ void	sort_two(t_list **list, int	c)
 	}
 }
 
-static	void one_smaller_than_two(t_list **list, int one, int three, int c)
+static	void	one_smaller_than_two(t_list **list, int one, int three, int c)
 {
 	if (one < three)
 	{
@@ -30,7 +30,7 @@ static	void one_smaller_than_two(t_list **list, int one, int three, int c)
 		reverse_rotate(list, c);
 }
 
-void	sort_three(t_list	**list, int	c)
+void	sort_three(t_list **list, int c)
 {
 	int	one;
 	int	two;
@@ -73,7 +73,7 @@ void	sort_four(t_list **a, t_list **b)
 	else if (i == 4)
 		reverse_rotate(a, 'a');
 	if (is_sorted(*a) == 0)
-		return	;
+		return ;
 	push(a, b, 'b');
 	sort_three(a, 'a');
 	push(b, a, 'a');

@@ -1,8 +1,8 @@
 #include "../includes/push_swap.h"
 
-void    swap(t_list **list, int s)
+void	swap(t_list **list, int s)
 {
-    t_list  *temp;
+	t_list	*temp;
 	t_list	*next;
 
 	if (!(*list) || !(*list)->next)
@@ -18,12 +18,11 @@ void    swap(t_list **list, int s)
 		ft_putstr_fd("sb\n", 1);
 	else
 		ft_putstr_fd("ss\n", 1);
-	// print_list(*list);
 }
 
 void	push(t_list **from, t_list **pushto, int c)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	if (!(*from))
 		return ;
@@ -97,13 +96,13 @@ void	rotate(t_list **list, int c)
 
 void	reverse_rotate(t_list **list, int c)
 {
-	t_list *prev_last;
+	t_list	*prev_last;
 	t_list	*last;
 
 	if (!(*list))
 		return ;
 	prev_last = *list;
-	last = 	ft_lstlast(*list);
+	last = ft_lstlast(*list);
 	while (prev_last->next->next)
 		prev_last = prev_last->next;
 	prev_last->next = NULL;

@@ -3,14 +3,13 @@
 int	min_steps(t_list *list, int i, int size, int max)
 {
 	int	dis;
-	
+
 	dis = get_distance_index(&list, i);
 	while (dis == 0 && i <= max)
 	{
-		// printf("dis == %i, i == %i\n", dis, i);
 		dis = get_distance_index(&list, i++);
 		if (dis != 0)
-			break;
+			break ;
 	}
 	if (dis > (size / 2) + 1)
 	{
@@ -26,7 +25,7 @@ int	min_steps(t_list *list, int i, int size, int max)
 //-negative value means rra
 //positive value means ra
 
-int		less_steps(t_list *list, int min, int max, int size)
+int	less_steps(t_list *list, int min, int max, int size)
 {
 	int		dis;
 	int		i;
@@ -34,7 +33,7 @@ int		less_steps(t_list *list, int min, int max, int size)
 
 	i = min;
 	dis = min_steps(list, i, size, max);
-	while (i <=  max)
+	while (i <= max)
 	{
 		j = min_steps(list, i, size, max);
 		if (abs(dis) > abs(j))

@@ -1,11 +1,10 @@
 #include "../includes/push_swap.h"
-#include <stdint.h>
 
-int	error_checking(int  argc, char **argv, t_list **a)
+int	error_checking(int argc, char **argv, t_list **a)
 {
 	if (argc == 1)
 		exit (0);
-    if (argc <= 2)
+	if (argc <= 2)
 	{
 		ft_putstr_fd("Error: wrong number of arguments\n", 2);
 		return (-1);
@@ -27,7 +26,7 @@ int	error_checking(int  argc, char **argv, t_list **a)
 
 static int	compare(char *atoi)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (atoi[++i])
@@ -47,7 +46,7 @@ static int	compare(char *atoi)
 int	is_number(char **argv, t_list **a)
 {
 	int		c;
-	long 	nbr;
+	long	nbr;
 	t_list	*new;
 
 	c = 0;
@@ -59,7 +58,7 @@ int	is_number(char **argv, t_list **a)
 			if (compare(argv[c]) != 0)
 				return (-1);
 		}
-		if (nbr < INT_MIN || nbr > 	INT_MAX)
+		if (nbr < INT_MIN || nbr > INT_MAX)
 			return (-1);
 		new = ft_lstnew(NULL);
 		new->content = malloc(sizeof(int));
@@ -79,13 +78,12 @@ int	is_number(char **argv, t_list **a)
 //this is how a use generic linked list that
 //we coded in libft
 
-
 int	is_duplicate(t_list *a)
 {
 	t_list	*tmp;
 	int		i;
 	int		j;
-	
+
 	while (a->next != NULL)
 	{
 		i = *(int *)a->content;
@@ -102,11 +100,9 @@ int	is_duplicate(t_list *a)
 	return (0);
 }
 
-
 // if the fucntion is_sorted return (-1)
 // means not sorted
 // return (0) means sorted
-
 
 int	is_sorted(t_list *list)
 {
@@ -115,7 +111,7 @@ int	is_sorted(t_list *list)
 	value = *(int *)list->content;
 	while (list->next)
 	{
-		if (value  > *(int *)list->next->content)
+		if (value > *(int *)list->next->content)
 		{
 			return (-1);
 		}

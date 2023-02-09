@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-int	abs(int	num)
+int	abs(int num)
 {
 	if (num < 0)
 		return (-num);

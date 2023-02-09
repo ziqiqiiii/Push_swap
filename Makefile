@@ -5,7 +5,7 @@ OBJ_DIR = ./obj
 SRCS	= printf_list.c main.c operators.c delete.c \
 			error_checking.c utils.c sort_small.c \
 			sort.c sort_small_b.c steps_cal.c \
-			utils_two.c
+			utils_two.c execution_sort.c
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 # FT_PRINTF
