@@ -1,5 +1,7 @@
-NAME = push_swap
+BONUS_NAME	= checker
+NAME		= push_swap
 
+#mandatory
 SRC_DIR = ./mandatory
 OBJ_DIR = ./obj
 SRCS	= printf_list.c main.c operators.c delete.c \
@@ -8,6 +10,12 @@ SRCS	= printf_list.c main.c operators.c delete.c \
 			utils_two.c execution_sort.c	\
 			error_check_utils.c radix.c
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
+
+#bonus
+B_SRC_DIR	= ./bonus
+B_OBJ_DIR	= ./b_obj
+B_SRC		= main.c
+B_OBJ		= $(B_SRC:%.c=$(B_OBJ_DIR)/%.o)
 
 # FT_PRINTF
 FT_PRINTF_DIR  = ./ft_printf
@@ -41,6 +49,14 @@ $(OBJ_DIR)/%.o: $(FT_PRINTF_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
 	@$(CCD) $(INCLUDES) -c $< -o $@
 
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(B_OBJ) libft/libft.a
+	$(CC) $(CFLAGS) $(B_OBJ) $(INCLUDES) $(LIB) -o $(BONUS_NAME)
+
+$(B_OBJ)/%.o: $(B_SRC_DIR)/%.c
+		@mkdir -p $(B_OBJ_DIR)
+		@$(CC) $(INCLUDES) -c $< -o $@
 test:
 	@make && ./push_swap
 
@@ -48,10 +64,10 @@ leaks:
 	@valgrind --leak-check=full --show-leak-kinds=all ./push_swap
 
 clean:
-	$(RM) $(OBJ_DIR)
+	$(RM) $(OBJ_DIR) $(B_OBJ_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(BONUS_NAME)
 	@make fclean -C libft
 
 re: fclean all
