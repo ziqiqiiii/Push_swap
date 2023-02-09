@@ -4,7 +4,6 @@ int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
-	int		i;
 
 	a = NULL;
 	b = NULL;

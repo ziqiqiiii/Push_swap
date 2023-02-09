@@ -14,7 +14,9 @@ OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 #bonus
 B_SRC_DIR	= ./bonus
 B_OBJ_DIR	= ./b_obj
-B_SRC		= main.c
+B_SRC		= main_b.c operators_b.c delete_b.c utils_b.c\
+				error_check_utils_b.c error_checking_b.c\
+				printf_b.c
 B_OBJ		= $(B_SRC:%.c=$(B_OBJ_DIR)/%.o)
 
 # FT_PRINTF
@@ -51,12 +53,17 @@ $(OBJ_DIR)/%.o: $(FT_PRINTF_DIR)/%.c
 
 bonus: $(BONUS_NAME)
 
-$(BONUS_NAME): $(B_OBJ) libft/libft.a
-	$(CC) $(CFLAGS) $(B_OBJ) $(INCLUDES) $(LIB) -o $(BONUS_NAME)
+$(BONUS_NAME): $(B_OBJ) $(FT_PRINTF_OBJS) libft/libft.a
+	$(CC) $(CFLAGS) $(B_OBJ) $(FT_PRINTF_OBJS) $(INCLUDES) $(LIB) -o $(BONUS_NAME)
 
-$(B_OBJ)/%.o: $(B_SRC_DIR)/%.c
+$(B_OBJ_DIR)/%.o: $(B_SRC_DIR)/%.c
 		@mkdir -p $(B_OBJ_DIR)
 		@$(CC) $(INCLUDES) -c $< -o $@
+
+$(B_OBJ_DIR)/%.o: $(FT_PRINTF_DIR)/%.c
+	@mkdir -p $(B_OBJ_DIR)
+	@$(CC) $(INCLUDES) -c $< -o $@
+
 test:
 	@make && ./push_swap
 

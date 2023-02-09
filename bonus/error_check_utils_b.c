@@ -1,4 +1,4 @@
-#include "../includes/push_swap.h"
+#include "../includes/push_swap_bonus.h"
 
 int	check_num(int argc, char **argv, t_list **a)
 {
@@ -24,6 +24,7 @@ int	check_num(int argc, char **argv, t_list **a)
 		if (is_number(argv, argc, a) != 0)
 			return (-1);
 	}
+	// print_list(*a);
 	return (0);
 }
 
@@ -102,27 +103,6 @@ int	is_duplicate(t_list *a)
 			tmp = tmp->next;
 		}
 		a = a->next;
-	}
-	return (0);
-}
-
-// if the fucntion is_sorted return (-1)
-// means not sorted
-// return (0) means sorted
-
-int	is_sorted(t_list *list)
-{
-	int	value;
-
-	value = *(int *)list->content;
-	while (list->next)
-	{
-		if (value > *(int *)list->next->content)
-		{
-			return (-1);
-		}
-		list = list->next;
-		value = *(int *)list->content;
 	}
 	return (0);
 }
