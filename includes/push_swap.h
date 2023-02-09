@@ -39,8 +39,9 @@ int		find_max(t_list *list);
 // int	    next_min(t_list *list);
 
 //utils_two.c
-int		abs(int num);
-int		range(int size);
+int	    abs(int	num);
+int		range(int	size);
+void	free_twod(char **list);
 
 //sort_small.c
 void	sort_two(t_list **list, int c);

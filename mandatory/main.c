@@ -15,6 +15,7 @@ int	main(int argc, char **argv)
 	}
 	indexing(a);
 	sort(&a, &b);
+    // print_ab(a, b);
 	ft_lstclear(&a, delete);
 }
 

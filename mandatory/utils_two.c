@@ -16,3 +16,16 @@ int	range(int size)
 	else
 		return (size / 4);
 }
+
+void	free_twod(char **list)
+{
+	int i;
+
+	i = 0;
+	while (list[i])
+	{
+		free(list[i]);
+		i++;
+	}
+	free(list);
+}
