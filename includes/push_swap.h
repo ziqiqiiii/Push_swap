@@ -7,23 +7,23 @@
 #include "../libft/libft.h"
 #include "../ft_printf/ft_printf.h"
 
-//printf
+//printf.c
 void	print_content(void *content);
 void	print_list(t_list *list);
 void	print_ab(t_list	*a, t_list	*b);
 
-//operators
+//operators.c
 void    swap(t_list **list, int s);
 void	rotate(t_list **list, int c);
 void	push(t_list **from, t_list **pushto, int c);
-void	r(t_list **lista, t_list **listb, int c);
+// void	r(t_list **lista, t_list **listb, int c);
 void	reverse_rotate(t_list **list, int c);
-void	rr(t_list **lista, t_list **listb, int c);
+// void	rr(t_list **lista, t_list **listb, int c);
 
-//delete
+//delete.c
 void    delete(void *content);
 
-//error_checking
+//error_checking.c
 int	    error_checking(int  argc, char **argv, t_list **a);
 int	    is_duplicate(t_list *a);
 int	    is_number(char **argv, t_list **a);
@@ -34,20 +34,34 @@ void    indexing(t_list *list);
 int	    get_distance_value(t_list	**list, int	min);
 int	    get_distance_index(t_list	**list, int	num);
 int     find_min(t_list *list);
-// int	    find_max(t_list *list);
-int	    abs(int	num);
+int	    find_max(t_list *list);
 // int	    next_min(t_list *list);
 
+//utils_two.c
+int	    abs(int	num);
+int		range(int	size);
 
-//sort_small
+//sort_small.c
 void	sort_two(t_list **list, int	c);
 void	sort_three(t_list	**list, int	c);
 void	sort_four(t_list **a, t_list **b);
 void	sort_five(t_list **a, t_list **b);
 
-//sort
+//sort.c
 void    sort(t_list **a, t_list **b);
 void    sort_small(t_list **a, t_list **b, int size);
-void	insertion_sort(t_list **a, t_list **b, int	size);
+void	insertion_sort(t_list **a, t_list **b, int size);
+void	reverse_insert(t_list **a, t_list **b, int size);
+
+//sort_small_b.c
+void    sort_small_b(t_list **a, t_list **b, int sizeb);
+void    sort_three_b(t_list **a, t_list **b);
+void    sort_four_b(t_list **a, t_list **b);
+void    sort_five_b(t_list **a, t_list **b);
+int     reverse_sorted(t_list *list);
+
+//steps_cal.c
+int		less_steps(t_list *list, int min, int max, int size);
+int	    min_steps(t_list *list, int i, int size, int max);
 
 #endif

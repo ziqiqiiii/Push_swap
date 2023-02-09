@@ -13,11 +13,11 @@ void    swap(t_list **list, int s)
 	(*list)->next = temp;
 	temp->next = next;
 	if (s == 'a')
-		ft_printf("sa\n");
+		ft_putstr_fd("sa\n", 1);
 	else if (s == 'b')
-		ft_printf("sb\n");
+		ft_putstr_fd("sb\n", 1);
 	else
-		ft_printf("ss\n");
+		ft_putstr_fd("ss\n", 1);
 	// print_list(*list);
 }
 
@@ -32,26 +32,26 @@ void	push(t_list **from, t_list **pushto, int c)
 	temp->next = *pushto;
 	*pushto = temp;
 	if (c == 'a')
-		ft_printf("pa\n");
+		ft_putstr_fd("pa\n", 1);
 	else if (c == 'b')
-		ft_printf("pb\n");
+		ft_putstr_fd("pb\n", 1);
 }
 
 // void	r(t_list **lista, t_list **listb, int c)
 // {
 // 	if (c == 'a')
 // 	{
-// 		ft_printf("ra\n");
+// 		ft_ft_putstr_fd("ra\n"), 1;
 // 		rotate(lista);
 // 	}
 // 	else if (c == 'b')
 // 	{
-// 		ft_printf("rb\n");
+// 		ft_ft_putstr_fd("rb\n"), 1;
 // 		rotate(listb);
 // 	}
 // 	else
 // 	{
-// 		ft_printf("rr\n");
+// 		ft_ft_putstr_fd("rr\n"), 1;
 // 		rotate(lista);
 // 		rotate(listb);
 // 	}
@@ -70,26 +70,26 @@ void	rotate(t_list **list, int c)
 	temp->next = last->next;
 	last->next = temp;
 	if (c == 'a')
-		ft_printf("ra\n");
+		ft_putstr_fd("ra\n", 1);
 	else if (c == 'b')
-		ft_printf("rb\n");
+		ft_putstr_fd("rb\n", 1);
 }
 
 // void	rr(t_list **lista, t_list **listb, int c)
 // {
 // 	if (c == 'a')
 // 	{
-// 		ft_printf("rra\n");
+// 		ft_ft_putstr_fd("rra\n", 1);
 // 		reverse_rotate(lista);
 // 	}
 // 	else if (c == 'b')
 // 	{
-// 		ft_printf("rrb\n");
+// 		ft_ft_putstr_fd("rrb\n", 1);
 // 		reverse_rotate(listb);
 // 	}
 // 	else
 // 	{
-// 		ft_printf("rrr\n");
+// 		ft_ft_putstr_fd("rrr\n", 1);
 // 		reverse_rotate(lista);
 // 		reverse_rotate(listb);
 // 	}
@@ -110,7 +110,7 @@ void	reverse_rotate(t_list **list, int c)
 	last->next = *list;
 	*list = last;
 	if (c == 'a')
-		ft_printf("rra\n");
+		ft_putstr_fd("rra\n", 1);
 	else if (c == 'b')
-		ft_printf("rrb\n");
+		ft_putstr_fd("rrb\n", 1);
 }

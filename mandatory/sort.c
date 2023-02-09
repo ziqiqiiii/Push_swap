@@ -14,78 +14,97 @@ void    sort_small(t_list **a, t_list **b, int size)
 
 void    sort(t_list **a, t_list **b)
 {
-    int size;
+    int sizea;
 
-    size = ft_lstsize(*a);
-    if (size <= 5)
-        sort_small(a, b, size);
+    sizea = ft_lstsize(*a);
+    if (sizea <= 5)
+        sort_small(a, b, sizea);
 	else
-		insertion_sort(a, b, size);
+		insertion_sort(a, b, sizea);
 }
+
 
 //split the chunk into size of 5
 //push 1 - 5 to next chunk
 //push it back
 
-//less_size function find min steps
-//to push to stack b
-//input the range of the chunk into func
-//-negative value means rra
-//positive value means ra
-int		less_steps(t_list *list, int min, int max, int size)
-{
-	int		dis;
-	int		i;
-	int		j;
 
-	i = min;
-	dis = get_distance_index(&list, i);
-	if (dis > (size / 2) + 1)
+
+void	reverse_insert(t_list **a, t_list **b, int size)
+{
+	int max;
+	int	dis;
+
+	max = size;
+	while (size > 0)
 	{
-		dis = size + 1- dis;
-		dis *= -1;
-		// printf("dis %i\n",? dis);
-	}
-	i++;
-	while (i <=  max)
-	{
-		// printf("i %i\n", i);
-		j = get_distance_index(&list, i);
-		// printf("j %i\n", j);
-		if (j > (size / 2) + 1)
+		dis = get_distance_index(b, ft_lstsize(*b));
+		if ((dis > (ft_lstsize(*b)/ 2)) && (dis != 1))
 		{
-			j = size + 1 - j;
-			j *= -1;
-			// printf("j in the if %i\n", j);
+			dis = size + 1 - dis;
+			dis *= -1;
+		}
+		if (dis > 0)
+		{
+			while (--dis > 0)
+				rotate(b, 'b');
+			push(b, a, 'a');
 		}
 		else
-			j -= 1;
-		// printf("dis = [%i], j = [%i]\n", abs(dis), abs(j));
-		if (abs(dis) > abs(j))
 		{
-			dis = j;
+			while (++dis < 1)
+				reverse_rotate(b, 'b');
+			push(b, a, 'a');
 		}
-		i++;
+		size--;
 	}
-	return (dis);
+}
+
+void	exec_insert_sort(t_list **a, t_list **b, int min, int max)
+{
+	int i;
+	int	j;
+
+	i = less_steps(*a, min, max, ft_lstsize(*a));
+	while (i == 0)
+		i = less_steps(*a, min++, max, ft_lstsize(*a));
+	if (i < 0)
+	{
+		j = -1;
+		while (++j < abs(i))
+			reverse_rotate(a, 'a');
+		push(a, b, 'b');
+	}
+	else
+	{
+		j = 0;
+		while (++j < i)
+			rotate(a, 'a');
+		push(a, b, 'b');
+	}
 }
 
 void	insertion_sort(t_list **a, t_list **b, int	size)
 {
-	int	i;
-	int	j;
 	int	k;
+	int	min;
+	int	max;
+	int	ran;
 
-	// i = get_distance_index(a, 1);
-	// j = get_distance_index(a, 2);
-	// k = get_distance_index(a, 3);
-	printf("%i\n", less_steps(*a, 1, 5, size));
-	rotate(a, 'a');
-	push(a, b, 'a');
-	// rotate(a, 'a');
-	// push(a, b, 'a');
-	printf("\n\n");
-	print_ab(*a, *b);
-	printf("\n\n");
-	printf("%i\n", less_steps(*a, 1, 5, size));
+	ran = range(size);
+	min = 1;
+	max = min + ran;
+	while (max < size)
+	{
+		k = -1;
+		while (++k < max - min + 1)
+			exec_insert_sort(a, b, min, max);
+		min = max + 1;
+		max = min + ran;	
+	}
+	if (is_sorted(*a) != 0)
+		sort(a, b);
+	reverse_insert(a, b, ft_lstsize(*b));
+	if (is_sorted(*a) == 0)
+		return ;
 }

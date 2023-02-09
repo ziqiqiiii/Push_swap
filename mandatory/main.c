@@ -1,8 +1,5 @@
 #include "../includes/push_swap.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-
 int main(int argc, char **argv)
 {
 	t_list	*a;
@@ -17,8 +14,6 @@ int main(int argc, char **argv)
 		return (-1);
 	}
 	indexing(a);
-	// printf("distance %i\n", get_distance(&a, find_min(a)));
-	// print_ab(a, b);
 	sort(&a, &b);
     // print_ab(a, b);
 	ft_lstclear(&a, delete);

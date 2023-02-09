@@ -82,20 +82,22 @@ int	get_distance_index(t_list	**list, int	num)
 	}
 	return (i);
 }
-// int	find_max(t_list *list)
-// {
-// 	int i;
 
-// 	i = *(int *)list->content;
-// 	list = list->next;
-// 	while (list)
-// 	{
-// 		if (i < *(int *)list->content)
-// 			i = *(int *)list->content;
-// 		list = list->next;
-// 	}
-// 	return (i);
-// }
+int	find_max(t_list *list)
+{
+	int i;
+
+	i = *(int *)list->content;
+	list = list->next;
+	while (list)
+	{
+		if (i < *(int *)list->content)
+			i = *(int *)list->content;
+		list = list->next;
+	}
+	return (i);
+}
+
 //next_min return the second smallest
 //num
 // int	next_min(t_list *list)
@@ -124,9 +126,3 @@ int	get_distance_index(t_list	**list, int	num)
 // 	return (min);
 // }
 
-int	abs(int	num)
-{
-	if (num < 0)
-		return (-num);
-	return (num);
-}

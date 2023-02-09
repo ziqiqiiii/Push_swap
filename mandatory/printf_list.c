@@ -13,8 +13,10 @@ void	print_list(t_list *list)
 
 void	print_ab(t_list	*a, t_list	*b)
 {
+	ft_printf("\n\n");
 	ft_printf("a\n");
 	print_list(a);
 	ft_printf("b\n");
 	print_list(b);
+	ft_printf("\n\n");
 }
