@@ -69,4 +69,7 @@ int		min_steps(t_list *list, int i, int size, int max);
 //execurion_sort.c
 void	exec_insert_sort(t_list **a, t_list **b, int min, int max);
 void	exec_reverse_insert(t_list **a, t_list **b, int size);
+
+//radix.c
+void	radix_sort(t_list **stack_a, t_list **stack_b);
 #endif

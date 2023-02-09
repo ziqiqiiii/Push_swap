@@ -19,6 +19,8 @@ void	sort(t_list **a, t_list **b)
 	sizea = ft_lstsize(*a);
 	if (sizea <= 5)
 		sort_small(a, b, sizea);
+	else if (sizea == 500)
+		radix_sort(a, b);
 	else
 		insertion_sort(a, b, sizea);
 }
@@ -38,6 +40,9 @@ void	reverse_insert(t_list **a, t_list **b, int size)
 		exec_reverse_insert(a, b, size);
 		size--;
 	}
+	if (is_sorted(*a) != 0)
+		sort(a,b);
+	return ;
 }
 
 void	insertion_sort(t_list **a, t_list **b, int size)
