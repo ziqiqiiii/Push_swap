@@ -16,7 +16,7 @@ B_SRC_DIR	= ./bonus
 B_OBJ_DIR	= ./b_obj
 B_SRC		= main_b.c operators_b.c delete_b.c utils_b.c\
 				error_check_utils_b.c error_checking_b.c\
-				printf_b.c
+				printf_b.c do_op.c
 B_OBJ		= $(B_SRC:%.c=$(B_OBJ_DIR)/%.o)
 
 # FT_PRINTF
@@ -24,6 +24,10 @@ FT_PRINTF_DIR  = ./ft_printf
 FT_PRINTF_SRCS = ft_printf_utils.c ft_printf.c
 FT_PRINTF_OBJS = $(FT_PRINTF_SRCS:%.c=$(OBJ_DIR)/%.o)
 
+#GNL
+GNL_DIR 	= ./get_next_line
+GNL_SRCS	= get_next_line.c get_next_line_utils.c
+GNL_OBJ		= $(GNL_SRCS:%.c=$(B_OBJ_DIR)/%.o)
 
 CC 		= gcc
 CCD		= gcc -g -Og -std=gnu99
@@ -31,7 +35,7 @@ CFLAGS	= -Wall -Wextra -Werror
 
 RM		= rm -rf
 
-INCLUDES= $(addprefix -I, includes libft ft_printf)
+INCLUDES= $(addprefix -I, includes libft ft_printf get_next_line)
 LIB		= -Llibft -lft
 
 all: $(NAME)
@@ -53,8 +57,8 @@ $(OBJ_DIR)/%.o: $(FT_PRINTF_DIR)/%.c
 
 bonus: $(BONUS_NAME)
 
-$(BONUS_NAME): $(B_OBJ) $(FT_PRINTF_OBJS) libft/libft.a
-	$(CC) $(CFLAGS) $(B_OBJ) $(FT_PRINTF_OBJS) $(INCLUDES) $(LIB) -o $(BONUS_NAME)
+$(BONUS_NAME): $(B_OBJ) $(FT_PRINTF_OBJS) $(GNL_OBJ) libft/libft.a
+	$(CC) $(CFLAGS) $(B_OBJ) $(FT_PRINTF_OBJS) $(GNL_OBJ) $(INCLUDES) $(LIB) -o $(BONUS_NAME)
 
 $(B_OBJ_DIR)/%.o: $(B_SRC_DIR)/%.c
 		@mkdir -p $(B_OBJ_DIR)
@@ -63,6 +67,10 @@ $(B_OBJ_DIR)/%.o: $(B_SRC_DIR)/%.c
 $(B_OBJ_DIR)/%.o: $(FT_PRINTF_DIR)/%.c
 	@mkdir -p $(B_OBJ_DIR)
 	@$(CC) $(INCLUDES) -c $< -o $@
+
+$(B_OBJ_DIR)/%.o: $(GNL_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) $(INCLUDES) -D BUFFER_SIZE=100 -c $< -o $@
 
 test:
 	@make && ./push_swap

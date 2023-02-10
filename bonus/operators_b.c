@@ -1,6 +1,6 @@
 #include "../includes/push_swap_bonus.h"
 
-void	swap(t_list **list, int s)
+void	swap(t_list **list)
 {
 	t_list	*temp;
 	t_list	*next;
@@ -12,15 +12,9 @@ void	swap(t_list **list, int s)
 	next = (*list)->next;
 	(*list)->next = temp;
 	temp->next = next;
-	if (s == 'a')
-		ft_putstr_fd("sa\n", 1);
-	else if (s == 'b')
-		ft_putstr_fd("sb\n", 1);
-	else
-		ft_putstr_fd("ss\n", 1);
 }
 
-void	push(t_list **from, t_list **pushto, int c)
+void	push(t_list **from, t_list **pushto)
 {
 	t_list	*temp;
 
@@ -30,13 +24,9 @@ void	push(t_list **from, t_list **pushto, int c)
 	*from = (*from)->next;
 	temp->next = *pushto;
 	*pushto = temp;
-	if (c == 'a')
-		ft_putstr_fd("pa\n", 1);
-	else if (c == 'b')
-		ft_putstr_fd("pb\n", 1);
 }
 
-void	rotate(t_list **list, int c)
+void	rotate(t_list **list)
 {
 	t_list	*temp;
 	t_list	*last;
@@ -48,13 +38,9 @@ void	rotate(t_list **list, int c)
 	*list = (*list)->next;
 	temp->next = last->next;
 	last->next = temp;
-	if (c == 'a')
-		ft_putstr_fd("ra\n", 1);
-	else if (c == 'b')
-		ft_putstr_fd("rb\n", 1);
 }
 
-void	reverse_rotate(t_list **list, int c)
+void	reverse_rotate(t_list **list)
 {
 	t_list	*prev_last;
 	t_list	*last;
@@ -68,8 +54,4 @@ void	reverse_rotate(t_list **list, int c)
 	prev_last->next = NULL;
 	last->next = *list;
 	*list = last;
-	if (c == 'a')
-		ft_putstr_fd("rra\n", 1);
-	else if (c == 'b')
-		ft_putstr_fd("rrb\n", 1);
 }

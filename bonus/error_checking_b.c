@@ -14,7 +14,5 @@ int	error_checking(int argc, char **argv, t_list **a)
 		ft_putstr_fd("Error: duplicate numbers\n", 2);
 		return (-1);
 	}
-	// if (is_sorted(*a) == 0)
-	// 	return (-1);
 	return (0);
 }
