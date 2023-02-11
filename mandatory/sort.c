@@ -41,7 +41,7 @@ void	reverse_insert(t_list **a, t_list **b, int size)
 		size--;
 	}
 	if (is_sorted(*a) != 0)
-		sort(a,b);
+		sort(a, b);
 	return ;
 }
 

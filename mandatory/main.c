@@ -14,8 +14,6 @@ int	main(int argc, char **argv)
 	}
 	indexing(a);
 	sort(&a, &b);
-	// if (is_sorted(a) == 0)
-	// 	printf("yeah it works");
 	ft_lstclear(&a, delete);
 }
 

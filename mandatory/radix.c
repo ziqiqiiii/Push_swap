@@ -1,17 +1,18 @@
 #include "../includes/push_swap.h"
 
-static unsigned int countBits(void)
+static unsigned int	countbits(void)
 {
-	int		max;
-	unsigned int count = 0;
+	int				max;
+	unsigned int	count;
 
+	count = 0;
 	max = 500;
-   	while (max)
-   	{
-        count++;
-        max >>= 1;
-    }
-    return (count);
+	while (max)
+	{
+		count++;
+		max >>= 1;
+	}
+	return (count);
 }
 
 void	radix_sort(t_list **stack_a, t_list **stack_b)
@@ -35,7 +36,7 @@ void	radix_sort(t_list **stack_a, t_list **stack_b)
 			if (((head_a->index >> i) & 1) == 1)
 				rotate(stack_a, 'a');
 			else
-		 		push(stack_a, stack_b, 'b');
+				push(stack_a, stack_b, 'b');
 		}
 		while (ft_lstsize(*stack_b) != 0)
 			push(stack_b, stack_a, 'a');

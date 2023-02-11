@@ -13,10 +13,10 @@ void	checker(t_list **a, t_list **b)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_list	*a;
-    t_list	*b;
+	t_list	*a;
+	t_list	*b;
 
 	a = NULL;
 	b = NULL;
@@ -26,7 +26,6 @@ int main(int argc, char **argv)
 		return (-1);
 	}
 	checker(&a, &b);
-	// print_ab(a, b);
 	if (is_sorted(a) == 0 && b == NULL)
 		ft_printf("OK\n");
 	else

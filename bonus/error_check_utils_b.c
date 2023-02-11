@@ -24,7 +24,6 @@ int	check_num(int argc, char **argv, t_list **a)
 		if (is_number(argv, argc, a) != 0)
 			return (-1);
 	}
-	// print_list(*a);
 	return (0);
 }
 

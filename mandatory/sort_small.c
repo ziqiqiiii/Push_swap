@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-void	sort_two(t_list **list, int	c)
+void	sort_two(t_list **list, int c)
 {
 	int	one;
 	int	two;
@@ -78,7 +78,6 @@ void	sort_four(t_list **a, t_list **b)
 	sort_three(a, 'a');
 	push(b, a, 'a');
 }
-
 
 void	sort_five(t_list **a, t_list **b)
 {

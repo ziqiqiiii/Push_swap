@@ -6,7 +6,6 @@
 # include "../libft/libft.h"
 # include "../ft_printf/ft_printf.h"
 
-
 //printf.c
 void	print_content(void *content);
 void	print_list(t_list *list);

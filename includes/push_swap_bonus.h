@@ -1,5 +1,5 @@
 #ifndef PUSH_SWAP_BONUS_H
-#   define PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -14,7 +14,7 @@ void	push(t_list **from, t_list **pushto);
 void	reverse_rotate(t_list **list);
 
 //error_checking.c
-int	error_checking(int argc, char **argv, t_list **a);
+int		error_checking(int argc, char **argv, t_list **a);
 
 //error_check_utils.c
 int		check_num(int argc, char **argv, t_list **a);
