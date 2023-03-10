@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tzi-qi <tzi-qi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/10 17:09:18 by tzi-qi            #+#    #+#             */
+/*   Updated: 2023/03/10 17:47:02 by tzi-qi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void	sort_small(t_list **a, t_list **b, int size)
@@ -55,7 +67,7 @@ void	insertion_sort(t_list **a, t_list **b, int size)
 	ran = range(size);
 	min = 1;
 	max = min + ran;
-	while (max < size)
+	while (max <= size)
 	{
 		k = -1;
 		while (++k < max - min + 1)
@@ -63,7 +75,7 @@ void	insertion_sort(t_list **a, t_list **b, int size)
 		min = max + 1;
 		max = min + ran;
 	}
-	if (is_sorted(*a) != 0)
+	if (ft_lstsize(*a) != 0 && is_sorted(*a) != 0)
 		sort(a, b);
 	reverse_insert(a, b, ft_lstsize(*b));
 	if (is_sorted(*a) == 0)

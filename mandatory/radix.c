@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tzi-qi <tzi-qi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/10 17:08:14 by tzi-qi            #+#    #+#             */
+/*   Updated: 2023/03/10 17:08:16 by tzi-qi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 static unsigned int	countbits(void)
@@ -26,7 +38,7 @@ void	radix_sort(t_list **stack_a, t_list **stack_b)
 	i = 0;
 	head_a = *stack_a;
 	size = 500;
-	max_bits = countBits();
+	max_bits = countbits();
 	while (i < max_bits)
 	{
 		j = 0;
